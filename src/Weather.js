@@ -4,7 +4,7 @@ import Forecast from './Forecast.js';
 
 
 function Weather() {
-    console.log(process.env.REACT_APP_API_key)
+    
     const [inputText, setInputText] = useState('');
     const [responseData, setResponseData] = useState([]);
     const key = process.env.REACT_APP_API_key;
@@ -16,7 +16,7 @@ function Weather() {
 
       const handleButtonClick = async () => {
         try {
-          const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${inputText},&appid=020f2520d02672d0b58299a4ea52d2ac`);
+          const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${inputText},&appid=${process.env.REACT_APP_API_key}`);
           const data = await response.json();
           setResponseData(data);
     
@@ -40,7 +40,8 @@ return (
             Latitude: {responseData[0].lat}  Longitude: {responseData[0].lon}
             </p>
             
-            <Forecast/>
+            <Forecast latitude={responseData[0].lat} longitude={responseData[0].lon}/>
+
         </div>
       )}
 

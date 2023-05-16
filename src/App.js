@@ -2,20 +2,26 @@ import logo from './logo.svg';
 import './App.css';
 import './Weather.js'
 import Weather from './Weather.js';
+import News from './News.js';
 
 
 
 function App() {
   
-return (
-  <div>
-    <h1> Welcome to Alex's Weather and News Site!</h1>
-
-    <Weather/>
-
-  </div>
+  return (
+    <div className="container">
+      <header><h1> Welcome to Alex's Weather and News Site!</h1></header>
+      <div className="row">
+        <div className="col">
+          <Weather/>
+        </div>
+        <div className="col">
+          <News/>
+        </div>
+      </div>
+    </div>
+  );
   
-);
 }
 /*
 function App() {
