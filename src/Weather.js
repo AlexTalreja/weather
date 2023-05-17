@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import './Forecast.js';
 import Forecast from './Forecast.js';
-
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 function Weather() {
     
@@ -29,9 +30,8 @@ function Weather() {
 
 return (
 <div>
-
-<input type="text" value ={inputText} onChange={handleInputChange} />
-<button onClick={handleButtonClick}>Check the Weather!</button>
+<TextField id="outlined-basic" label="Enter City" variant="outlined" value={inputText} onChange={handleInputChange} />
+<Button variant="contained" onClick={handleButtonClick}>Check the Weather!</Button>
 {responseData.length === 0? (<p>No weather for that city available.</p>) : 
       (
         <div>
